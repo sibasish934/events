@@ -1,0 +1,18 @@
+  const [userFavorites, setUserFavorites] = useState([]);
+
+  //depending on the last snapshot
+  const addFavHandler = (favoriteMeetup:[]) => {
+    setUserFavorites((prevUserFavorites) => {
+      return prevUserFavorites.concat(favoriteMeetup);
+    });
+  };
+
+    const removeFavHandler = (meetupId: string) => {
+    setUserFavorites((prevUserFavorites) => {
+        return prevUserFavorites.filter((meetup) => meetup.id !== meetupId);
+    });
+
+  const context = {
+    favorites: userFavorites,
+    totalFavorites: userFavorites.length,
+  };
